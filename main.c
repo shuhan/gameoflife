@@ -1,7 +1,8 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <allegro.h>
 #include "config.h"
+#include "game.h"
+
 
 int main() {
 
@@ -43,17 +44,19 @@ int main() {
 
     //------------------    Begin Temp
 
-    //Clear display with specified colour
-    al_clear_to_color(al_map_rgb(128, 0, 196));
+    GAME game;
 
-    //Set pixel colour in the middle of the screen
-    al_draw_pixel(WIDTH/2, HEIGHT/2, al_map_rgb(0, 0, 0));
+    init_game(&game, WIDTH, HEIGHT, 1);
+
+    paint_game(game);
 
     //Flip display buffer after each update
     al_flip_display();
 
     //Wait for 3 seconds
     al_rest(3);
+
+    destroy_game(&game);
 
     //------------------    End Temp
 
