@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <allegro.h>
+#include <allegro5/allegro.h>
 #include "config.h"
 #include "game.h"
 

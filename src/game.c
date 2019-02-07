@@ -1,4 +1,4 @@
-#include <allegro.h>
+#include <allegro5/allegro.h>
 #include "game.h"
 
 void init_game(GAME *game, int width, int height, int coverage) {
