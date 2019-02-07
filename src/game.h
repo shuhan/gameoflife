@@ -21,8 +21,6 @@ void init_game(GAME *game, int width, int height, int coverage);
 
 void update_game(GAME *game);
 
-void paint_game(GAME game);
-
 void destroy_game(GAME *game);
 
 //-------------------------------------------
@@ -32,5 +30,13 @@ void destroy_game(GAME *game);
 int get_neighbours(GAME game, int x, int y);
 
 int get_data_index(int width, int x, int y);
+
+int get_left_x(int x, int width);
+
+int get_right_x(int x, int width);
+
+int get_top_y(int y, int height);
+
+int get_bottom_y(int y, int height);
 
 #endif // GAME_H_INCLUDED

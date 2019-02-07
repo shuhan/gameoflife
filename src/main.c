@@ -46,15 +46,22 @@ int main() {
 
     GAME game;
 
-    init_game(&game, WIDTH, HEIGHT, 1);
+    init_game(&game, WIDTH, HEIGHT, 3);
 
-    paint_game(game);
+    int c = 0;
 
-    //Flip display buffer after each update
-    al_flip_display();
+    while(c < 250) {
 
-    //Wait for 3 seconds
-    al_rest(3);
+        update_game(&game);
+
+        //Flip display buffer after each update
+        al_flip_display();
+
+        //Wait for 1 seconds
+        al_rest(0.001);
+
+        c++;
+    }
 
     destroy_game(&game);
 
