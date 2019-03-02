@@ -4,7 +4,7 @@
 #include "game.h"
 
 
-int main() {
+int main(int argc, char **argv) {
 
     ALLEGRO_DISPLAY         *display = NULL;
     ALLEGRO_DISPLAY_MODE    disp_data;
@@ -12,8 +12,13 @@ int main() {
                             HEIGHT;
 
     if(!al_init()) {
-      printf("Failed to initialize allegro!\n");
-      return -1;
+        printf("Failed to initialize allegro!\n");
+        return -1;
+    }
+
+    if(!al_init_primitives_addon()) {
+        printf("Failed to initialize allegro primitives!\n");
+        return -1;
     }
 
     if(al_get_num_display_modes() < 1) {
@@ -32,7 +37,7 @@ int main() {
     HEIGHT  = disp_data.height;
 
     //Set display flag
-    al_set_new_display_flags(ALLEGRO_FULLSCREEN);
+    //al_set_new_display_flags(ALLEGRO_FULLSCREEN);
 
     //Create Display
     display = al_create_display(WIDTH, HEIGHT);
@@ -46,11 +51,11 @@ int main() {
 
     GAME game;
 
-    init_game(&game, WIDTH, HEIGHT, 3);
+    init_game(&game, WIDTH, HEIGHT, 10, 5);
 
     int c = 0;
 
-    while(c < 250) {
+    while(c < 500) {
 
         update_game(&game);
 
@@ -58,7 +63,7 @@ int main() {
         al_flip_display();
 
         //Wait for 1 seconds
-        al_rest(0.001);
+        al_rest(0.1);
 
         c++;
     }
